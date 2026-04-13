@@ -1,0 +1,27 @@
+# AI Interview Questions & Answers Module Walkthrough
+
+I've successfully implemented your AI Interview Module according to your comprehensive implementation plan. The project features a React (TypeScript) Frontend dynamically fetching generated questions from a Java Spring Boot Backend utilizing the Groq API.
+
+## Theme & Engagement Features
+As requested, the interface utilizes a deeply refined Orange & White palette (#f97316), paired with light #f8fafc backgrounds. 
+- User Engagement: Answers are initially hidden to encourage self-assessment. Users must interact with the "Show Answer" button to reveal the AI's explanation.
+- Glassmorphism & Micro-animations: Components smoothly glide into view with responsive hover effects.
+- Dynamic Badge System: Displays context clues like Conceptual, Coding, Scenario and Difficulty.
+
+## Project Structure
+The codebase is split cleanly into two independent sub-projects located in your root directory:
+
+### 1. backend/ (Java Spring Boot)
+The fully-structured backend is ready and features:
+- InterviewController: A single API endpoint POST /api/ai/interview-questions
+- GroqAiService: Utilizes RestTemplate to send precisely engineered prompts to the fast llama3-70b-8192 model using the API key you provided. It explicitly mandates the LLM return a structured JSON array.
+- Configured safely in application.properties (running on Port 8080).
+
+### 2. frontend/ (React + Vite TS)
+A lightning-fast frontend:
+- App.tsx: Holds the primary user form fetching user input for Skill and Difficulty, with integrated Loading spinners and sleek error states.
+- components/QuestionCard.tsx: Renders individual interactive question cards, gracefully parsing any hidden markdown.
+- index.css: Our custom-built, Tailwind-inspired Vanilla Styling system.
+
+## Setup Context
+Since the system environment lacked Java/Maven initially, an `install_java.ps1` script was dynamically provided to safely fetch portable OpenJDK 17 and Maven 3.9 binaries allowing the environment to run the backend without Admin UAC privileges.

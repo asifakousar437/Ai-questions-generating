@@ -1,0 +1,6 @@
+jdk.zip
+jdk_extracted/
+backend/target/
+maven_extracted/
+frontend/node_modules/
+

@@ -1,0 +1,23 @@
+# Skill-Based AI Interview Questions Module Implementation Plan
+
+This document outlines the architecture and steps required to build the full-stack AI Interview Questions & Answers module based on your requirements. The solution uses React for the frontend, Java Spring Boot for the backend, and Groq API for LLM-driven fast generation.
+
+## Proposed Changes
+
+### Backend (Java Spring Boot)
+Initialized a standard Spring Boot application (using Maven) with the following key components:
+
+- backend/pom.xml: Contains dependencies for spring-boot-starter-web and spring-boot-starter-webflux (to make outbound API calls to Groq).
+- backend/src/main/resources/application.properties: Holds the server port configuration (8080) and the Groq API Key.
+- backend/src/main/java/com/interview/ai/AiInterviewApplication.java: The main Spring Boot entry point with global CORS mapping.
+- backend/src/main/java/com/interview/ai/controller/InterviewController.java: REST Controller exposing the POST /api/ai/interview-questions endpoint.
+- backend/src/main/java/com/interview/ai/service/GroqAiService.java: Constructs the AI prompt, specifies output format, and connects to Groq using their OpenAI-compatible endpoint.
+- backend/src/main/java/com/interview/ai/model/...: Data Transfer Objects (DTOs) for Requests and Questions.
+
+### Frontend (React + Vite)
+Built an interactive, high-end React application utilizing Vanilla CSS to provide an attractive orange and white styled interface.
+
+- frontend/package.json: UI tracking and processing logic using React and axios.
+- frontend/src/index.css: A comprehensive CSS file implementing the custom Orange/White design system.
+- frontend/src/App.tsx: The central interactive UI.
+- frontend/src/components/QuestionCard.tsx: Reusable component handling individual question display with reveal answer animations.
